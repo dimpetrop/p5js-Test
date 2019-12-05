@@ -1,4 +1,4 @@
-let i = 20;
+let xPos;
 function setup() {
   // create canvas
   createCanvas(800,500);
@@ -6,12 +6,10 @@ function setup() {
   background('orange');
 }
 function draw () {
-  // left line
-  line (350,100, 350,300);
-  // right line
-  line (450,100, 450,300);
-  // draw horizontal lines across the height of the two vertical lines
-  for (i; i<200; i= i+20){
-    line (350,100+i, 450,100+i);
+  // use a for loop and create points with a distance of 30px
+  for (xPos = 1; xPos<width; xPos = xPos +30) {
+    // in order to create a diagonal line of points going from up left to down right
+    // you will have to use the appropiate geometry to define the y coordinate
+    point (xPos,5/8*xPos);
   }
 }
