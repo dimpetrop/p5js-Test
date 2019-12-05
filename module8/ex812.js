@@ -1,47 +1,39 @@
+// create a variable tp control the direction of the ellipse
+let control = false;
+// make ellipse starting from the left end of the canvas
+let i=30;
 function setup() {
-	createCanvas(800, 600);
-	// set background color
-	background('#D66761');
+  // create canvas
+  createCanvas(800,500);
+  // set background color
+  background('#31bc33');
+}
+function draw () {
+  // when ellipse is in the left edge, control would be/become false
+  if (i==30) {
+    control = false;
   }
-  function draw() {
-	// state the fill color of the shape
-	fill('#FBEFCC');
-	// state the border color of the shape
-	stroke('#FBEFCC');
-	// state the border weight of the shape
-	strokeWeight(2);
-	// create the face ellipse
-	ellipse(width/2,height/2,200,300)
-	// state the border color of the outer eye circle
-	stroke('#A2836E');
-	// for the left eye
-	// draw the base ellipse, the sclera/“white of the eye”
-	ellipse(350,275,50,25);
-	// state the border of the iris
-	stroke('black');
-	// draw the Iris for the eye
-	ellipse(350,275,25);
-	// fill the center of the eye
-	fill('#034F84');
-	// color the border
-	stroke('#034F84');
-	// draw the center of the eye
-	ellipse(350,275,12.5);
-	// state the border color of the outer eye circle
-	stroke('#A2836E');
-	// for the right eye
-	// draw the base ellipse for the eye, the sclera/“white of the eye”
-	noFill();
-	ellipse(450,275,50,25);
-	// state the border of the iris
-	stroke('black');
-	// draw the Iris for the eye
-	ellipse(450,275,25);
-	// fill the center of the eye
-	fill('#034F84');
-	// color the border
-	stroke('#034F84');
-	// draw the center of the eye
-	ellipse(450,275,12.5);
+  // if ellipse is inside the canvas width (we substract 30 which is the radius
+  // of our ellipse) and control is false
+  if (i<(width-30) && control==false){
+    // state fill and alpha of the ellipse
+    fill(146,87,67,40);
+    //state stroke color and transparency
+    stroke(234,65,88,5);
+    i++
+    // increase its x position (ellipse moves in the right direction)
+    ellipse(i,height/2,60);
   }
-  
+  else {
+    // else control will change to true
+    control = true;
+    //change the color and fill of the ellipse
+    // state fill and alpha of the ellipse
+    fill(56,57,67,100);
+    //state stroke color and transparency
+    stroke(5,165,188,50);
+    // decrease its x position (ellipse moves in the left direction)
+    i--;
+    ellipse(i,height/2,60);
+  }
+}
