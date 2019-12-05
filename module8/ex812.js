@@ -1,16 +1,13 @@
 function setup() {
 	// create canvas
 	createCanvas(800,500);
-  }
+	}
   function draw () {
 	// set background color
 	background('orange');
-	noFill();
-	// create the cube
-	rect(300,200,100,100);
-	rect(350,250,100,100);
-	line (400,200,450,250);
-	line (300,200,350,250);
-	line (400,300,450,350);
-	line (300,300,350,350);
+	// create the shape using triangles
+	triangle(400,250,500,400,300,400);
+	triangle(300,100,400,250,200,250);
+	triangle(500,100,600,250,400,250);
+	triangle(400,250,200,250,300,400);
   }
