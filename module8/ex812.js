@@ -1,13 +1,23 @@
+let	x= 300;
+let	y= 200;
+let	speedx= 4;
+let speedy= -3;
+let r = 24;
 function setup() {
-	// create canvas
-	createCanvas(800,500);
+	createCanvas(600,400);
+}	
+function draw() {
+	background(0);
+	strokeWeight(4);
+	stroke(255);
+	fill(255, 0, 0);
+	x = x + speedx;
+	y = y + speedy;
+	if (x > (width-r/2) || x- r/2< 0) {
+		speedx = speedx* (-1);
 	}
-  function draw () {
-	// set background color
-	background('orange');
-	// create the shape using triangles
-	triangle(400,250,500,400,300,400);
-	triangle(300,100,400,250,200,250);
-	triangle(500,100,600,250,400,250);
-	triangle(400,250,200,250,300,400);
-  }
+	if (y> (height-r/2)  || y -r/2 < 0) {
+		speedy = speedy* (-1);
+	}
+	ellipse(x, y ,r);	
+}
